@@ -33,12 +33,12 @@ public class Main {
     public static List<Slice> slices = new ArrayList<>();
 
     public static void main(String[] args) throws IOException {
-//        entirePizza = readFromFile("small.in");
-        entirePizza = readFromFile("medium.in");
-//        entirePizza = readFromFile("big.in");
+//        entirePizza = readFromFile("../resources/small.in");
+        entirePizza = readFromFile("../resources/medium.in");
+//        entirePizza = readFromFile("../resources/big.in");
 
-        processAllCells(Arrays.asList(new Runner1x5(), new Runner5x1(), new Runner2x2()));
-//        processAllCells(Arrays.asList(new Runner1x12(), new Runner12x1(), new Runner1x11(), new Runner11x1()));
+//        processAllCells(Arrays.asList(new Runner1x5(), new Runner5x1(), new Runner2x2()));
+        processAllCells(Arrays.asList(new Runner1x12(), new Runner12x1(), new Runner1x11(), new Runner11x1()));
 //        processAllCells(Arrays.asList(new Runner1x14(), new Runner14x1(), new Runner1x13(), new Runner13x1(),
 //                new Runner1x12(), new Runner12x1(), new Runner2x6(), new Runner6x2(), new Runner3x4(), new Runner4x3()));
 
@@ -97,7 +97,7 @@ public class Main {
                 }
                 cellCount++;
                 if (cellCount > H) {
-                    throw new IllegalStateException("blad w podanym zakresie komorek");
+                    throw new IllegalStateException("Error in range of given cells");
                 }
                 if (countM >= L && countT >= L) {
                     return true;
@@ -146,7 +146,7 @@ public class Main {
 
 
     private static void writeToFile() throws FileNotFoundException, UnsupportedEncodingException {
-        PrintWriter writer = new PrintWriter("medium-out.txt", "UTF-8");
+        PrintWriter writer = new PrintWriter("../resources/medium-out.txt", "UTF-8");
         writer.println(slices.size());
         for (Slice slice : slices) {
             writer.println(slice.r1 + " " + slice.c1 + " " + slice.r2 + " " + slice.c2);
